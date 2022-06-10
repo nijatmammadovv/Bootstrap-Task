@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(https://preview.uideck.com/items/saaspal/assets/img/hero/hero-bg.svg);
+    background-repeat: no-repeat;
+    background-position:top center ;
+}
+.navbar-brand{
+    padding-left: 290px;
+}
+.nav-item .page-scroll{
+  text-decoration: none;
+  display: flex;
+  list-style: none;
+  padding: 20px ;
+  padding-left: 10px;
+  color: white;
+}
+.image1{
+    position:absolute;
+    padding-left: 900px;
+    margin-top: 90px;
+}
+.text h1{
+ font-size: 58px;
+ color: white;
+ padding-left: 150px;
+ padding-top: 140px;
+} 
+.homesection p{
+    color: white;
+    padding-left: 125px;
+    margin: 30px;
+}
+.section2{
+    padding-top: 400px;
+}
+.btn{
+    margin-left: 40px;
+}
+.card-group {
+    margin-top: 420px;
+}
+.image2{
+    padding-top: 40px;
+    padding-left: 120px;
+}
+.section3{
+    display: flex;
+}
+.text1{
+    padding-top: 120px;
+}
+.btn{
+    margin-right: 120px;
+    font-size: 30px;
+}
+.section4{
+    display: flex;
+}
+.image3{
+    padding-left: 20px;
+    display: inline-block;
+}
+.text2{
+padding-left: 120px;
+padding-top: 30px;
+}
+.text3{
+    text-align: center;
+}
+.card-group{
+    margin-top: 20px;
+}
+.section5 .card-group{
+    text-align: center;
+    justify-content: center;
+    margin-left: 450px;
+    gap: 50px;
+    color: teal;
+}
+#carouselExampleCaptions img{
+    width: 300px;
+    height: 600px;
+}
