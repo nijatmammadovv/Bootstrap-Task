@@ -2,7 +2,7 @@
 
 namespace Bootstrap_Task.Migrations
 {
-    public partial class CreateSlidertable : Migration
+    public partial class CreateSliderTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

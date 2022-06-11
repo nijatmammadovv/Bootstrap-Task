@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bootstrap_Task.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220610105134_CreateSlidertable")]
-    partial class CreateSlidertable
+    [Migration("20220611065059_CreateSliderTable")]
+    partial class CreateSliderTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

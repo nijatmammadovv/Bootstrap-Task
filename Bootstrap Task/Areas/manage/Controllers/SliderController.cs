@@ -1,10 +1,14 @@
 ﻿using Bootstrap_Task.Data_Access_Layer;
 using Bootstrap_Task.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Bootstrap_Task.Utilies;
 
 namespace Bootstrap_Task.Areas.manage.Controllers
 {
@@ -12,23 +16,37 @@ namespace Bootstrap_Task.Areas.manage.Controllers
     public class SliderController : Controller
     {
         private AppDbContext _context { get; }
-        public SliderController(AppDbContext context)
+        private readonly IWebHostEnvironment _evn;
+        public SliderController(AppDbContext context, IWebHostEnvironment evn)
         {
             _context = context;
+            _evn = evn;
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_context.Sliders.ToList());
         }
         public IActionResult Create()
         {
             return View();
         }
+        [HttpPost]
         public async Task<IActionResult> Create(Slider slider)
         {
-            await _context.AddAsync(slider);
+            if (slider.Photo.CheckSize(3000))
+            {
+                ModelState.AddModelError("Photo", "Faylin olcusu sertden cox ola bilmez");
+                return View();
+            }
+            if (!slider.Photo.CheckType("image/"))
+            {
+                ModelState.AddModelError("Photo", "Sekil deyil");
+                return View();
+            }
+            slider.Image = await slider.Photo.SaveFileAsync(Path.Combine(_evn.WebRootPath, "assets", "imgs", "theme"));
+            await _context.Sliders.AddAsync(slider);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(Index));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
